@@ -1,0 +1,16 @@
+.cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .text-danger {
+    color: #dc3545; /* Bootstrap red color */
+  }
+  
+  .btn-warning .fa-edit {
+    font-size: 1.25rem;
+  }
+  
+  .fa-trash-alt {
+    font-size: 1.25rem;
+  }
+  

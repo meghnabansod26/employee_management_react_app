@@ -1,0 +1,75 @@
+{
+  "employees": [
+    {
+      "id": "a865",
+      "name": "Meghna Bansod",
+      "email": "meghnabansod26@gmail.com",
+      "mobile": "8080162995",
+      "country": "India",
+      "state": "Maharashtra",
+      "district": "Wardha"
+    },
+    {
+      "id": "e446",
+      "name": "Narmada Ugale",
+      "email": "narmadaugale27@gmail.com",
+      "mobile": "9307739625",
+      "country": "India",
+      "state": "Maharashtra",
+      "district": "Aurangabad"
+    },
+    {
+      "id": "ecec",
+      "name": "Suman Bansod",
+      "email": "sumanbansod10@gmail.com",
+      "mobile": "7559153752",
+      "country": "India",
+      "state": "Delhi",
+      "district": "North West"
+    },
+    {
+      "id": "7046",
+      "name": "Kajal Chopde",
+      "email": "kajalchopde03@gmail.com",
+      "mobile": "8980364878",
+      "country": "Canada",
+      "state": "Columbia",
+      "district": "Woshington"
+    },
+    {
+      "id": "23d9",
+      "name": "Pooja Chaudhari",
+      "email": "poojachaudhari23@gmail.com",
+      "mobile": "4659837450",
+      "country": "United States",
+      "state": "California",
+      "district": "Wilton"
+    },
+    {
+      "id": "cc78",
+      "name": "Riya Hemane",
+      "email": "riyahemane@gmail.com",
+      "mobile": "5689876545",
+      "country": "India",
+      "state": "Punjab",
+      "district": "Mohali"
+    }
+  ],
+  "countries": [
+    {
+      "code": "US",
+      "name": "United States",
+      "id": "70e8"
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "id": "3289"
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "id": "6c1a"
+    }
+  ]
+}
