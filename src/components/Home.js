@@ -57,7 +57,7 @@ const Home = () => {
     <Container className="my-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Employee List</h2>
-        <Link to="/add" className="btn btn-success">Add New Employee</Link>
+        <Link to="/add" className="btn btn-dark">Add New Employee</Link>
       </div>
       <InputGroup className="mb-3">
         <FormControl
