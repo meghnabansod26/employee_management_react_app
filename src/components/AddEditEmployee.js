@@ -1,23 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import api from '../services/api';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Form, Button, Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
-import './AddEditEmployee.css';
+import React, { useState, useEffect } from "react";
+import api from "../services/api";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  Form,
+  Button,
+  Container,
+  Row,
+  Col,
+  Spinner,
+  Alert,
+} from "react-bootstrap";
+import "./AddEditEmployee.css";
 
 const AddEditEmployee = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [employee, setEmployee] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    country: '',
-    state: '',
-    district: '',
+    name: "",
+    email: "",
+    mobile: "",
+    country: "",
+    state: "",
+    district: "",
   });
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -25,8 +33,8 @@ const AddEditEmployee = () => {
         const response = await api.getCountries();
         setCountries(response.data);
       } catch (error) {
-        console.error('Error fetching countries:', error);
-        setError('Failed to load countries');
+        console.error("Error fetching countries:", error);
+        setError("Failed to load countries");
       }
     };
 
@@ -36,8 +44,8 @@ const AddEditEmployee = () => {
           const response = await api.getEmployeeById(id);
           setEmployee(response.data);
         } catch (error) {
-          console.error('Error fetching employee:', error);
-          setError('Failed to load employee');
+          console.error("Error fetching employee:", error);
+          setError("Failed to load employee");
         }
       }
       setLoading(false);
@@ -54,28 +62,35 @@ const AddEditEmployee = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
       if (id) {
         await api.updateEmployee(id, employee);
       } else {
         await api.createEmployee(employee);
       }
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      setError('An error occurred while saving the employee.');
-      console.error('Error saving employee:', error);
+      setError("An error occurred while saving the employee.");
+      console.error("Error saving employee:", error);
     }
   };
 
-  if (loading) return <div className="d-flex justify-content-center align-items-center min-vh-100"><Spinner animation="border" /></div>;
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center align-items-center min-vh-100">
+        <Spinner animation="border" />
+      </div>
+    );
 
   return (
     <Container className="my-4">
       <Row className="justify-content-center">
         <Col md={8} lg={6}>
           <div className="form-container">
-            <h2 className="text-center mb-4">{id ? 'Edit Employee' : 'Add Employee'}</h2>
+            <h2 className="text-center mb-4">
+              {id ? "Edit Employee" : "Add Employee"}
+            </h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formName" className="mb-3">
@@ -149,8 +164,12 @@ const AddEditEmployee = () => {
                   required
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="w-100 btn btn-dark">
-                {id ? 'Update' : 'Create'}
+              <Button
+                variant="primary"
+                type="submit"
+                className="w-100 btn btn-dark"
+              >
+                {id ? "Update" : "Create"}
               </Button>
             </Form>
           </div>

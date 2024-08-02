@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import api from '../services/api';
-import { useParams, Link } from 'react-router-dom';
-import { Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import api from "../services/api";
+import { useParams, Link } from "react-router-dom";
+import { Button, Container, Row, Col, Spinner } from "react-bootstrap";
 
 const EmployeeDetails = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const EmployeeDetails = () => {
         setEmployee(response.data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching employee:', error);
+        console.error("Error fetching employee:", error);
         setLoading(false);
       }
     };
@@ -31,28 +31,41 @@ const EmployeeDetails = () => {
         <Col>
           <h2>Employee Details</h2>
           <div>
-            <p><strong>Name:</strong> {employee.name}</p>
-            <p><strong>Email:</strong> {employee.email}</p>
-            <p><strong>Mobile:</strong> {employee.mobile}</p>
-            <p><strong>Country:</strong> {employee.country}</p>
-            <p><strong>State:</strong> {employee.state}</p>
-            <p><strong>District:</strong> {employee.district}</p>
+            <p>
+              <strong>Name:</strong> {employee.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {employee.email}
+            </p>
+            <p>
+              <strong>Mobile:</strong> {employee.mobile}
+            </p>
+            <p>
+              <strong>Country:</strong> {employee.country}
+            </p>
+            <p>
+              <strong>State:</strong> {employee.state}
+            </p>
+            <p>
+              <strong>District:</strong> {employee.district}
+            </p>
           </div>
         </Col>
       </Row>
-      
-      <Row className="mt-4">
-  <Col>
-    <Link to={`/edit/${id}`}>
-      <Button variant="primary" className="me-2">Edit</Button> {/* me-2 adds a small margin */}
-    </Link>
-    <Link to="/">
-      <Button variant="secondary">Back to List</Button>
-    </Link>
-  </Col>
-</Row>
 
-      
+      <Row className="mt-4">
+        <Col>
+          <Link to={`/edit/${id}`}>
+            <Button variant="primary" className="me-2">
+              Edit
+            </Button>{" "}
+            {/* me-2 adds a small margin */}
+          </Link>
+          <Link to="/">
+            <Button variant="secondary">Back to List</Button>
+          </Link>
+        </Col>
+      </Row>
     </Container>
   );
 };
