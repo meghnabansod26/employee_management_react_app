@@ -26,7 +26,7 @@ const EmployeeDetails = () => {
   if (loading) return <Spinner animation="border" />;
 
   return (
-    <Container className="my-4">
+    <Container className="my-4 ">
       <Row>
         <Col>
           <h2>Employee Details</h2>
@@ -40,18 +40,19 @@ const EmployeeDetails = () => {
           </div>
         </Col>
       </Row>
+      
       <Row className="mt-4">
-        <Col>
-          <Link to={`/edit/${id}`}>
-            <Button variant="primary">Edit</Button>
-          </Link>
-        </Col>
-        <Col className="text-end">
-          <Link to="/">
-            <Button variant="secondary">Back to List</Button>
-          </Link>
-        </Col>
-      </Row>
+  <Col>
+    <Link to={`/edit/${id}`}>
+      <Button variant="primary" className="me-2">Edit</Button> {/* me-2 adds a small margin */}
+    </Link>
+    <Link to="/">
+      <Button variant="secondary">Back to List</Button>
+    </Link>
+  </Col>
+</Row>
+
+      
     </Container>
   );
 };

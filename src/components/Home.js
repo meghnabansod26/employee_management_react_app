@@ -48,7 +48,8 @@ const Home = () => {
   };
 
   const filteredEmployees = employees.filter(employee =>
-    employee.name.toLowerCase().includes(searchTerm.toLowerCase())
+    employee.name.toLowerCase().includes(searchTerm.toLowerCase())||
+    employee.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) return <Spinner animation="border" />;
@@ -109,7 +110,6 @@ const Home = () => {
         </tbody>
       </Table>
 
-      {/* Delete Confirmation Modal */}
       <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Deletion</Modal.Title>
