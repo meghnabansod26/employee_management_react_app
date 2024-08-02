@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
 import { Link } from 'react-router-dom';
-import { Table, Container, Spinner, Modal, Button } from 'react-bootstrap';
+import { Table, Container, Spinner, Modal, Button, FormControl, InputGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import './Home.css'; 
+import './Home.css';
 
 const Home = () => {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -46,14 +47,25 @@ const Home = () => {
     setShowDeleteModal(false);
   };
 
+  const filteredEmployees = employees.filter(employee =>
+    employee.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) return <Spinner animation="border" />;
 
   return (
     <Container className="my-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Employee List</h2>
-        <Link to="/add" className="btn btn-dark">Add New Employee</Link>
+        <Link to="/add" className="btn btn-success">Add New Employee</Link>
       </div>
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Search employees..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </InputGroup>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -68,7 +80,7 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.map(employee => (
+          {filteredEmployees.map(employee => (
             <tr key={employee.id}>
               <td>{employee.id}</td>
               <td>{employee.name}</td>
@@ -87,6 +99,13 @@ const Home = () => {
               </td>
             </tr>
           ))}
+          {filteredEmployees.length === 0 && (
+            <tr>
+              <td colSpan="8" className="text-center">
+                No employees found.
+              </td>
+            </tr>
+          )}
         </tbody>
       </Table>
 
