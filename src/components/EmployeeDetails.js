@@ -59,7 +59,6 @@ const EmployeeDetails = () => {
             <Button variant="primary" className="me-2">
               Edit
             </Button>{" "}
-            {/* me-2 adds a small margin */}
           </Link>
           <Link to="/">
             <Button variant="secondary">Back to List</Button>

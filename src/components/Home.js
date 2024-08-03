@@ -55,10 +55,15 @@ const Home = () => {
     setShowDeleteModal(false);
   };
 
+  const handleAddEmployee = (newEmployee) => {
+    setEmployees((prevEmployees) => [newEmployee, ...prevEmployees]); // Add new employee at the top
+  };
+
   const filteredEmployees = employees.filter(
     (employee) =>
       employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      employee.email.toLowerCase().includes(searchTerm.toLowerCase())
+      employee.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.mobile.toLowerCase().includes(searchTerm)
   );
 
   if (loading) return <Spinner animation="border" />;
