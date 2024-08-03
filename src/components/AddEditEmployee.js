@@ -168,6 +168,7 @@ const AddEditEmployee = () => {
                 variant="primary"
                 type="submit"
                 className="w-100 btn btn-dark"
+
               >
                 {id ? "Update" : "Create"}
               </Button>
